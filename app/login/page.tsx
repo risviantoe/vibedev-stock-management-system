@@ -1,4 +1,3 @@
-import { Suspense } from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { LinkButton } from "@/components/ui/button";
@@ -29,9 +28,7 @@ export default function LoginPage() {
             <Boxes size={21} strokeWidth={2.4} />
           </span>
           <span>
-            <span className="block text-base font-bold tracking-tight text-white">
-              StokLedger
-            </span>
+            <span className="block text-base font-bold tracking-tight text-white">Celo Beaute</span>
             <span className="mt-0.5 block text-[0.6875rem] font-semibold tracking-[0.1em] text-white/65 uppercase">
               Kontrol Persediaan
             </span>
@@ -41,8 +38,8 @@ export default function LoginPage() {
         <div className="story-copy">
           <h1>Kelola persediaan sampai ke tingkat batch.</h1>
           <p>
-            Pantau barang masuk, alokasi order, pengiriman, retur, dan stok
-            opname dalam satu riwayat yang mudah ditelusuri.
+            Pantau barang masuk, alokasi order, pengiriman, retur, dan stok opname dalam satu
+            riwayat yang mudah ditelusuri.
           </p>
         </div>
 
@@ -67,8 +64,7 @@ export default function LoginPage() {
           <div>
             <h2>Masuk ke StokLedger</h2>
             <p className="login-intro">
-              Gunakan akun Admin Supabase yang telah dikonfigurasi untuk
-              workspace ini.
+              Gunakan akun Admin Supabase yang telah dikonfigurasi untuk workspace ini.
             </p>
           </div>
 
@@ -93,19 +89,17 @@ export default function LoginPage() {
                   <p>Form sudah terisi. Klik masuk untuk membuka data contoh.</p>
                 </aside>
               ) : null}
-              <Suspense fallback={<div className="h-40 animate-pulse rounded-lg bg-muted" />}>
-                <LoginForm
-                  demoEmail={demoCredentials?.email}
-                  demoPassword={demoCredentials?.password}
-                />
-              </Suspense>
+              <LoginForm
+                demoEmail={demoCredentials?.email}
+                demoPassword={demoCredentials?.password}
+              />
             </>
           ) : (
             <div className="config-callout" role="status">
               <strong>Supabase belum dikonfigurasi</strong>
               <p>
-                Isi environment dari <code>.env.example</code>. Halaman ini
-                sengaja tidak menampilkan form palsu sebelum backend tersedia.
+                Isi environment dari <code>.env.example</code>. Halaman ini sengaja tidak
+                menampilkan form palsu sebelum backend tersedia.
               </p>
               <LinkButton className="h-11 w-full px-5" href="/">
                 Kembali ke fondasi
@@ -114,8 +108,7 @@ export default function LoginPage() {
           )}
 
           <p className="security-note">
-            Sesi diverifikasi server-side. Service-role key tidak pernah
-            dikirimkan ke browser.
+            Sesi diverifikasi server-side. Service-role key tidak pernah dikirimkan ke browser.
           </p>
         </div>
       </section>

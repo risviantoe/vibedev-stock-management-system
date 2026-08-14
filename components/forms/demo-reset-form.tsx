@@ -52,7 +52,7 @@ export function DemoResetForm({ status }: DemoResetFormProps) {
       setShowPreview(false);
       setConfirmation("");
       toast.success("Data demo berhasil di-reset.", {
-        description: "Data stok dan transaksi telah berhasil dikembalikan ke kondisi awal.",
+        description: "Data stok telah kembali ke kondisi awal.",
       });
       router.refresh();
     } catch (caught) {

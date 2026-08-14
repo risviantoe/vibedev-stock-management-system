@@ -12,29 +12,35 @@ type TextInputFieldProps = Omit<
   "className" | "disabled" | "required"
 > & {
   className?: string;
+  defaultValue?: string;
   description?: ReactNode;
   disabled?: boolean;
   inputClassName?: string;
   label: ReactNode;
   required?: boolean;
+  value?: string;
 };
 
 export function TextInputField({
   className,
+  defaultValue,
   description,
   disabled = false,
   inputClassName,
   label,
   required = false,
+  value,
   ...inputProps
 }: TextInputFieldProps) {
   return (
     <TextField
       className={cn("grid min-w-0 content-start gap-[0.42rem]", className)}
       data-slot="text-input-field"
+      defaultValue={defaultValue}
       isDisabled={disabled}
       isRequired={required}
       validationBehavior="native"
+      value={value}
     >
       <Label className="text-[length:var(--text-xs)] leading-[1.35] font-semibold">
         {label}
@@ -60,29 +66,35 @@ type TextareaFieldProps = Omit<
   "className" | "disabled" | "required"
 > & {
   className?: string;
+  defaultValue?: string;
   description?: ReactNode;
   disabled?: boolean;
   label: ReactNode;
   required?: boolean;
   textareaClassName?: string;
+  value?: string;
 };
 
 export function TextareaField({
   className,
+  defaultValue,
   description,
   disabled = false,
   label,
   required = false,
   textareaClassName,
+  value,
   ...textareaProps
 }: TextareaFieldProps) {
   return (
     <TextField
       className={cn("grid min-w-0 content-start gap-[0.42rem]", className)}
       data-slot="textarea-field"
+      defaultValue={defaultValue}
       isDisabled={disabled}
       isRequired={required}
       validationBehavior="native"
+      value={value}
     >
       <Label className="text-[length:var(--text-xs)] leading-[1.35] font-semibold">
         {label}
@@ -105,3 +117,4 @@ export function TextareaField({
     </TextField>
   );
 }
+

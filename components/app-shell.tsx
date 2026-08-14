@@ -24,12 +24,7 @@ import { I18nProvider } from "react-aria-components";
 import { useState, type ReactNode } from "react";
 
 import { Button } from "@/components/ui/button";
-import {
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
+import { SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { Tooltip, TooltipTrigger } from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
 
@@ -49,9 +44,7 @@ const navigationGroups: NavigationGroup[] = [
   {
     id: "ringkasan",
     label: "Ringkasan",
-    items: [
-      { href: "/dashboard", icon: LayoutDashboard, label: "Tugas Hari Ini" },
-    ],
+    items: [{ href: "/dashboard", icon: LayoutDashboard, label: "Tugas Hari Ini" }],
   },
   {
     id: "operasional",
@@ -79,10 +72,7 @@ const navigationGroups: NavigationGroup[] = [
 ];
 
 function isNavigationItemActive(pathname: string, href: string): boolean {
-  return (
-    pathname === href ||
-    (href !== "/dashboard" && pathname.startsWith(`${href}/`))
-  );
+  return pathname === href || (href !== "/dashboard" && pathname.startsWith(`${href}/`));
 }
 
 function NavigationLink({
@@ -147,7 +137,7 @@ function Brand({ onDark = false }: { onDark?: boolean }) {
             onDark ? "text-white" : "text-foreground",
           )}
         >
-          StokLedger
+          Celo Beaute
         </span>
         <span
           className={cn(
@@ -175,12 +165,7 @@ function PrimaryNavigation({
       aria-label="Navigasi utama"
     >
       {navigationGroups.map((group) => (
-        <div
-          aria-labelledby={`nav-${group.id}`}
-          className="grid gap-1"
-          key={group.id}
-          role="group"
-        >
+        <div aria-labelledby={`nav-${group.id}`} className="grid gap-1" key={group.id} role="group">
           <p
             className="mb-1 px-3 text-[0.6875rem] font-bold tracking-[0.1em] text-white/45 uppercase"
             id={`nav-${group.id}`}
@@ -212,9 +197,7 @@ function Account({ email }: { email: string }) {
       </span>
       <span className="min-w-0">
         <strong className="block text-xs font-bold text-white">Admin Gudang</strong>
-        <span className="mt-0.5 block truncate text-[0.6875rem] text-white/65">
-          {email}
-        </span>
+        <span className="mt-0.5 block truncate text-[0.6875rem] text-white/65">{email}</span>
       </span>
       <form action="/auth/signout" method="post">
         <TooltipTrigger delay={400}>
@@ -225,7 +208,11 @@ function Account({ email }: { email: string }) {
             type="submit"
             variant="ghost"
           >
-            <LogOut aria-hidden="true" className="size-4 text-white/70 group-hover/button:text-white" size={16} />
+            <LogOut
+              aria-hidden="true"
+              className="size-4 text-white/70 group-hover/button:text-white"
+              size={16}
+            />
           </Button>
           <Tooltip placement="top">Keluar</Tooltip>
         </TooltipTrigger>
@@ -234,13 +221,7 @@ function Account({ email }: { email: string }) {
   );
 }
 
-export function AppShell({
-  email,
-  children,
-}: {
-  email: string;
-  children: ReactNode;
-}) {
+export function AppShell({ email, children }: { email: string; children: ReactNode }) {
   const pathname = usePathname();
   const [mobileNavigationOpen, setMobileNavigationOpen] = useState(false);
 
@@ -255,10 +236,7 @@ export function AppShell({
 
         <header className="sticky top-0 z-40 flex min-h-16 items-center justify-between border-b border-border bg-background/90 px-4 backdrop-blur-xl min-[1051px]:hidden">
           <Brand />
-          <SheetTrigger
-            isOpen={mobileNavigationOpen}
-            onOpenChange={setMobileNavigationOpen}
-          >
+          <SheetTrigger isOpen={mobileNavigationOpen} onOpenChange={setMobileNavigationOpen}>
             <Button
               aria-label="Buka menu navigasi"
               className="size-11"
