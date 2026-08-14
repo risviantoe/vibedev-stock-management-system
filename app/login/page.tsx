@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Suspense } from "react";
 import { LinkButton } from "@/components/ui/button";
 import { Boxes } from "lucide-react";
 import { getDemoLoginCredentials } from "@/lib/demo";
@@ -89,10 +90,12 @@ export default function LoginPage() {
                   <p>Form sudah terisi. Klik masuk untuk membuka data contoh.</p>
                 </aside>
               ) : null}
-              <LoginForm
-                demoEmail={demoCredentials?.email}
-                demoPassword={demoCredentials?.password}
-              />
+              <Suspense fallback={null}>
+                <LoginForm
+                  demoEmail={demoCredentials?.email}
+                  demoPassword={demoCredentials?.password}
+                />
+              </Suspense>
             </>
           ) : (
             <div className="config-callout" role="status">
