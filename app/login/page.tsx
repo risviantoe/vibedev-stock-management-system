@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { LinkButton } from "@/components/ui/button";
@@ -92,10 +93,12 @@ export default function LoginPage() {
                   <p>Form sudah terisi. Klik masuk untuk membuka data contoh.</p>
                 </aside>
               ) : null}
-              <LoginForm
-                demoEmail={demoCredentials?.email}
-                demoPassword={demoCredentials?.password}
-              />
+              <Suspense fallback={<div className="h-40 animate-pulse rounded-lg bg-muted" />}>
+                <LoginForm
+                  demoEmail={demoCredentials?.email}
+                  demoPassword={demoCredentials?.password}
+                />
+              </Suspense>
             </>
           ) : (
             <div className="config-callout" role="status">

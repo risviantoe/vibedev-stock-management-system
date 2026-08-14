@@ -6,9 +6,12 @@
     "node": ">=22.13.0"
   },
   "scripts": {
-    "dev": "vinext dev",
-    "build": "vinext build",
-    "start": "vinext start",
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "dev:vite": "vinext dev",
+    "build:vite": "vinext build",
+    "start:vite": "vinext start",
     "typecheck": "tsc --noEmit",
     "test": "node --test",
     "test:e2e": "playwright test",
